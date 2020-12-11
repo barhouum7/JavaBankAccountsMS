@@ -12,6 +12,7 @@ public class Customer {
 		this.address = address;
 	}
 
+	@Override
 	public String toString() {
 		return "\nCustomer's Full Info is:  FirstName= " + firstName + " | LastName= " + lastName + " | Address= "
 				+ address;
