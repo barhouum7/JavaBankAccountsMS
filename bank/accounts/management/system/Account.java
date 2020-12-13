@@ -22,6 +22,7 @@ public class Account {
         this.accountBalance = 0;
         this.maxOverDraft = -800;
         this.maxDebit = 1000;
+        accountId++;
     }
 
     public void credit(double balance) {
@@ -33,6 +34,26 @@ public class Account {
             System.out.println("Unauthorized operation!");
         else
             this.accountBalance -= balance;
+    }
+
+    public void withdrawal(double balance) {
+        if (balance > this.maxDebit)
+            System.out.println("Unauthorized withdrawal amount!");
+        else
+            this.debit(balance);
+    }
+
+    public boolean isOverDraft() {
+        boolean testResult = (this.accountBalance < 0) ? true : false;
+        return testResult;
+    }
+
+    public double overDraftAmount() {
+        if (this.accountBalance < 0) {
+            this.isOverDraft = true;
+            return Math.abs(this.accountBalance);
+        } else
+            return 0;
     }
 
 }
