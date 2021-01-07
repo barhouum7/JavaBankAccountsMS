@@ -56,4 +56,62 @@ public class Account {
             return 0;
     }
 
+    public void transfer1(Account account, double balance) {
+        if ((this.accountBalance - balance) < this.maxOverDraft)
+            System.out.println("Unauthorized Operation!");
+        else {
+            this.debit(balance);
+            account.credit(balance);
+
+        }
+
+    }
+
+    public void transfer2(Account account1, Account account2, double balance) {
+        if ((account1.accountBalance - balance) < account1.getMaxOverDraft)
+            System.out.println("Unauthorized Operation!");
+        else {
+            account1.debit(balance);
+            account2.credit(balance);
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Account: [ ID=" + accountId + ", Balance=" + accountBalance + ", OverDraft=" + maxOverDraft
+                + ", Max Debit=" + maxDebit + ", Account Holder=" + accountHolder + "] ";
+    }
+
+    public double getBalance() {
+        return accountBalance;
+    }
+
+    public void setBalance(double balance) {
+        accountBalance = balance;
+    }
+
+    public double getMaxOverDraft() {
+        return maxOverDraft;
+    }
+
+    public void setMaxOverDraft(double maxOverDraft) {
+        this.maxOverDraft = maxOverDraft;
+    }
+
+    public boolean getIsOverDraft() {
+        return isOverDraft;
+    }
+
+    public void setIsOverDraft(boolean isOverDraft) {
+        this.isOverDraft = isOverDraft;
+    }
+
+    public double getMaxDebit() {
+        return maxDebit;
+    }
+
+    public void setMaxDebit(double maxDebit) {
+        this.maxDebit = maxDebit;
+    }
 }
