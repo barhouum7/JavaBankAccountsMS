@@ -68,7 +68,7 @@ public class Account {
     }
 
     public void transfer2(Account account1, Account account2, double balance) {
-        if ((account1.accountBalance - balance) < account1.getMaxOverDraft)
+        if ((account1.accountBalance - balance) < account1.getMaxOverDraft())
             System.out.println("Unauthorized Operation!");
         else {
             account1.debit(balance);
@@ -79,8 +79,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account: [ ID=" + accountId + ", Balance=" + accountBalance + ", OverDraft=" + maxOverDraft
-                + ", Max Debit=" + maxDebit + ", Account Holder=" + accountHolder + "] ";
+        return "\nAccount's full info with ID=" + accountId + " are: [  Balance=" + accountBalance + ", OverDraft="
+                + maxOverDraft + ", Max Debit=" + maxDebit + ", \nAccount Holder=" + accountHolder + "  ] ";
     }
 
     public double getBalance() {
