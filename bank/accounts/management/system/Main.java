@@ -1,7 +1,5 @@
 package bank.accounts.management.system;
 
-import javax.swing.plaf.synth.SynthSplitPaneUI;
-
 public class Main {
 
 	public static void main(String[] args) {
